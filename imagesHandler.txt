@@ -1,0 +1,16 @@
+const cloudinary = require('cloudinary').v2
+cloudinary.v2.api
+  .delete_folder('/samples')
+  .then(console.log);
+  
+cloudinary.v2.api
+  .delete_resources(['cld-sample-5'], 
+    { type: 'upload', resource_type: 'image' })
+  .then(console.log);
+cloudinary.v2.api
+  .delete_folder('/samples')
+  .then(console.log);
+cloudinary.v2.api
+  .delete_resources(['cld-sample-4', 'cld-sample-3', 'cld-sample-2', 'cld-sample', 'sample'], 
+    { type: 'upload', resource_type: 'image' })
+  .then(console.log);
