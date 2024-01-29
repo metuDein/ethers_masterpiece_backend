@@ -1,53 +1,53 @@
 const Messages = require('../../../model/Messages')
 
 
-const sendMessage = async (req, res) => {
-    const { sender, receiver, subject, description } = req.body
+// const sendMessage = async (req, res) => {
+//     const { sender, receiver, subject, description } = req.body
 
-    if (!receiver || !subject || description) return res.status(400).json({ message: 'missing fields.' })
+//     if (!receiver || !subject || description) return res.status(400).json({ message: 'missing fields.' })
 
 
-    if (sender) {
-        const newMessage = await Messages.create({ sender, receiver, subject, description })
-        if (!newMessage) return res.status(400).json({ message: 'Action Failed.' })
-    }
+//     if (sender) {
+//         const newMessage = await Messages.create({ sender, receiver, subject, description })
+//         if (!newMessage) return res.status(400).json({ message: 'Action Failed.' })
+//     }
 
-    const newMessage = await Messages.create({ sender, receiver, subject, description })
-    if (!newMessage) return res.status(400).json({ message: 'Action Failed.' })
+//     const newMessage = await Messages.create({ sender, receiver, subject, description })
+//     if (!newMessage) return res.status(400).json({ message: 'Action Failed.' })
 
-    res.json({ message: 'success' })
+//     res.json({ message: 'success' })
 
-}
+// }
 
-const updateMessage = async (req, res) => {
-    const { _id } = req.body
-    if (!_id) return res.status(400).json({ message: 'missing field ID.' })
+// const updateMessage = async (req, res) => {
+//     const { _id } = req.body
+//     if (!_id) return res.status(400).json({ message: 'missing field ID.' })
 
-    const message = await Messages.findOne({ _id }).exec()
-    if (!message) res.sendStatus(204)
+//     const message = await Messages.findOne({ _id }).exec()
+//     if (!message) res.sendStatus(204)
 
-    message.readMsg = true
+//     message.readMsg = true
 
-    await message.save()
-    res.json({ message: 'read' })
-}
+//     await message.save()
+//     res.json({ message: 'read' })
+// }
 
-const deleteMessage = async (req, res) => {
-    const { _id } = req.body
-    if (!_id) return res.status(400).json({ message: 'missing field ID.' })
+// const deleteMessage = async (req, res) => {
+//     const { _id } = req.body
+//     if (!_id) return res.status(400).json({ message: 'missing field ID.' })
 
-    const message = await Messages.findOne({ _id }).exec()
-    if (!message) res.sendStatus(204)
+//     const message = await Messages.findOne({ _id }).exec()
+//     if (!message) res.sendStatus(204)
 
-    await message.deleteOne()
+//     await message.deleteOne()
 
-    res.json({ message: 'deleted.' })
+//     res.json({ message: 'deleted.' })
 
-}
+// }
 
-module.exports = {
-    getAllMessages,
-    sendMessage,
-    updateMessage,
-    deleteMessage,
-}
+// module.exports = {
+//     getAllMessages,
+//     sendMessage,
+//     updateMessage,
+//     deleteMessage,
+// }

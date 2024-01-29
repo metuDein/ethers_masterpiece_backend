@@ -15,10 +15,10 @@ const sendMessage = async (req, res) => {
     if (!receiver || !subject || !description) return res.status(400).json({ message: 'missing fields.' })
 
 
-    if (sender) {
-        const newMessage = await Messages.create({ sender, email, receiver, subject, description })
-        if (!newMessage) return res.status(400).json({ message: 'Action Failed.' })
-    }
+    // if (sender) {
+    //     const newMessage = await Messages.create({ sender, email, receiver, subject, description })
+    //     if (!newMessage) return res.status(400).json({ message: 'Action Failed.' })
+    // }
 
     const newMessage = await Messages.create({ sender, email, receiver, subject, description })
     if (!newMessage) return res.status(400).json({ message: 'Action Failed.' })
