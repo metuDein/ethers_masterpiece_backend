@@ -1,14 +1,6 @@
 const Messages = require('../../../model/Messages')
 
 
-
-const getAllMessages = async (req, res) => {
-    const messages = await Messages.find()
-    if (!messages) return res.sendStatus(204)
-
-    res.json(messages)
-}
-
 const sendMessage = async (req, res) => {
     const { sender, receiver, subject, description } = req.body
 
