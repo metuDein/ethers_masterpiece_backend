@@ -35,12 +35,13 @@ const updateUser = async (req, res) => {
         if (req.body?.image) {
             let uploadImage
             let uniqueID = Date.now()
-            await cloudinary.uploader
-                .destroy(
-                    [foundUser.public_id],
-                    { type: 'upload', resource_type: 'image' }
-                ).then(result => console.log(result))
-
+            if (foundUser?.public_id) {
+                await cloudinary.uploader
+                    .destroy(
+                        [foundUser.public_id],
+                        { type: 'upload', resource_type: 'image' }
+                    ).then(result => console.log(result))
+            }
             await cloudinary.uploader.upload(
                 req.body?.image,
                 { public_id: uniqueID },
