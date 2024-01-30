@@ -68,6 +68,10 @@ app.use('/message', require('./routes/message/message'))
 app.use('/deletemessage', require('./routes/message/deleteMessage'))
 
 
+// ADMIN USER ACTIONS
+app.use('/adminuser', require('./routes/admin actions/useractions'))
+
+
 // TEST ROUTES
 app.use('/images', require('./routes/images'))
 app.use('/deleteimages', require('./routes/deleterequest/deleteImage'))

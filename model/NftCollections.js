@@ -9,7 +9,7 @@ const CollectionSchema = new Schema({
     banner: String,
     owner: {
         type: String,
-        default: "Ethers Masterpiece Creators Community"
+        required: true
     },
     gasfee: {
         type: Boolean,
