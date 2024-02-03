@@ -70,47 +70,6 @@ const deleteUser = async (req, res) => {
     const foundUser = await Users.findOne({ _id }).exec()
     if (!foundUser) return res.sendStatus(204)
 
-    const userCollections = await NftColletion.find({ owner: foundUser.username })
-    const userAssets = await NftAsset.find({ owner: foundUser.username })
-
-
-    if (userCollections) {
-        let deleteImages = []
-
-        await userCollections.forEach(element => {
-            deleteImages.push((element?.public_id).toString())
-            console.log(deleteImages)
-        });
-
-        await cloudinary.api.delete_resources(deleteImages,
-            { type: 'upload', resource_type: 'image' }
-        ).then(result => console.log(result, deleteImages))
-
-
-        await NftColletion.deleteMany({
-            owner: foundUser.username
-        })
-    }
-
-    if (userAssets) {
-        let deleteImages = []
-        await userAssets.forEach(element => {
-            deleteImages.push((element?.public_id).toString())
-            console.log(deleteImages)
-        });
-
-        await NftAsset.deleteMany({
-            owner: foundUser.username
-        })
-    }
-    if (foundUser.public_id) {
-        await cloudinary.uploader
-            .destroy(
-                [(foundUser.public_id).toString()],
-                { type: 'upload', resource_type: 'image' }
-            ).then(result => console.log(result))
-    }
-
     await foundUser.deleteOne()
 
     res.json({ message: 'user and user\'s assets have been deleted.' })
