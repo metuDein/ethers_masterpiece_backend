@@ -39,7 +39,7 @@ const userSchema = new Schema({
     },
     balance: {
         type: Number,
-        default: 0
+        default: 0.00
     },
     public_id: String,
     refreshToken: String
