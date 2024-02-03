@@ -26,6 +26,7 @@ const updateAsset = async (req, res) => {
     if (req.body?.description) asset.description = req.body.description
     if (req.body?.supply) asset.supply = req.body.supply
     if (req.body?.price) asset.price = req.body.price
+    if (req.body?.likes) asset.likes = req.body.likes
     if (req.body?.image) {
         let uploadImage
         let uniqueID = Date.now()
