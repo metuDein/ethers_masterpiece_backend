@@ -74,6 +74,9 @@ app.use('/adminuser', require('./routes/admin actions/useractions'))
 // ADMIN COLLECTION ADMIN
 app.use('/admincollection', require('./routes/admin actions/collectionaction'))
 
+// ADMIN ASSETS 
+app.use('/admineditasset', require('./routes/admin actions/assetsaction'))
+
 
 
 // TEST ROUTES
