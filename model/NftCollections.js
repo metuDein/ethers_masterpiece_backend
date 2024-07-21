@@ -17,7 +17,7 @@ const CollectionSchema = new Schema({
     },
     gasfeeamount: {
         type: Number,
-        default: 0.076
+        default: 0.0
     },
     network: {
         type: String,
