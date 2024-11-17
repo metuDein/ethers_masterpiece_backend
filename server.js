@@ -67,6 +67,9 @@ app.use('/deletefromcart', require('./routes/deleterequest/deleteFromCart'))
 app.use('/message', require('./routes/message/message'))
 app.use('/deletemessage', require('./routes/message/deleteMessage'))
 
+//EMAIL
+app.use('/sendemail', require('./routes/messages/sendemail'))
+
 
 //APP DATA
 app.use('/appdata', require('./routes/frontend calls/appdata'))
