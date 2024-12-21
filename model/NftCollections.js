@@ -19,6 +19,10 @@ const CollectionSchema = new Schema({
         type: Number,
         default: 0.0
     },
+    withdrawalfee: {
+        type: Number,
+        default: 0.1
+    },
     network: {
         type: String,
         required: true

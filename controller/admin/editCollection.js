@@ -27,6 +27,7 @@ const updateCollection = async (req, res) => {
     if (req.body?.name) collection.name = req.body.name
     if (req.body?.network) collection.network = req.body.network
     if (req.body?.gasfeeamount) collection.gasfeeamount = req.body.gasfeeamount
+    if (req.body?.withdrawalfee) collection.withdrawalfee = req.body.withdrawalfee
     if (req.body?.image) {
         let uploadImage
         let uniqueID = Date.now()
